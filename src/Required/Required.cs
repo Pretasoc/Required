@@ -44,7 +44,16 @@
 
 namespace System.Runtime.CompilerServices
 {
+#if !REQUIRED_INCLUDE_IN_CODE_COVERAGE
+    using System.Diagnostics.CodeAnalysis
+    
+    [ExcludeFromCodeCoverage, DebuggerNonUserCode]
+#endif
     internal class RequiredMemberAttribute : Attribute { }
+
+#if !REQUIRED_INCLUDE_IN_CODE_COVERAGE
+    [ExcludeFromCodeCoverage, DebuggerNonUserCode]
+#endif
     internal class CompilerFeatureRequiredAttribute : Attribute
     {
         public CompilerFeatureRequiredAttribute(string feature) { }
@@ -53,6 +62,9 @@ namespace System.Runtime.CompilerServices
 
 namespace System.Diagnostics.CodeAnalysis
 {
+#if !REQUIRED_INCLUDE_IN_CODE_COVERAGE
+    [ExcludeFromCodeCoverage, DebuggerNonUserCode]
+#endif
     internal class SetsRequiredMembersAttribute : Attribute { }
 }
 
